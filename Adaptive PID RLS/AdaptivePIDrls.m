@@ -72,18 +72,18 @@ for i = Nv+1:N
 end
 %% plot results 
 ym = lsim(sysref , uc , t) ;
-figure();
+subplot(3,1,1);
 plot(t , ym , t , y , 'LineWidth' , 2) ;
-xlabel('Time  (second)');
-ylabel('y-ym');
+xlabel('Time [sec]');
+ylabel('y - ym');
 title('Adaptive PID based on RLS estimator');
 grid on
 legend('ref','Actual output') ;
 
 
-figure();
+subplot(3,1,2);
 plot(t , u , 'LineWidth' , 2) ;
-xlabel('Time  (second)');
+xlabel('Time [sec]');
 ylabel('u');
 title('Adaptive PID based on RLS estimator - effort control');
 grid on
@@ -93,11 +93,11 @@ Kp = -(teta(2,:)+2*teta(3,:)) ;
 Ki = teta(1,:)+teta(2,:) + teta(3,1) ;
 Kd = teta(3,:) ;
 
-figure();
+subplot(3,1,3);
 plot(t , [Kp;Ki ; Kd] , 'LineWidth' , 2) ;
-xlabel('Time  (second)');
-ylabel('parameters');
-title('Adaptive PID based on RLS estimator - PID parameters converence');
+xlabel('Time [sec]');
+ylabel('Parameters');
+title('Adaptive PID based on RLS estimator - PID parameters convergence');
 grid on
 legend('Kp' , 'Ki' , 'Kd') ;
 
